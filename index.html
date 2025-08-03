@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login | Intern Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <input type="text" placeholder="Enter your name" id="nameInput" required />
+    <!-- <input type="text" placeholder="Enter OTP" id="otpInput" required /> -->
+    <input type="number" placeholder="Enter your fundraising goal" id="goalInput" required />
+    <button onclick="submitLogin()">Login</button>
+  </div>
+
+  <script>
+    function submitLogin() {
+      const name = document.getElementById("nameInput").value;
+      // const otp = document.getElementById("otpInput").value;
+      const goal = document.getElementById("goalInput").value;
+
+      if (name && goal) {
+        localStorage.setItem("internName", name);
+        localStorage.setItem("goalAmount", goal);
+        window.location.href = "dashboard.html";
+      } else {
+        alert("Please fill in all fields.");
+      }
+    }
+  </script>
+</body>
+</html>
